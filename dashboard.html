@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - GIC Placement Portal</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+    import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyCQU8y_Q6DC1piNL_5RpV5nH9JVB-1D_w8",
+        authDomain: "gic-placement-portal.firebaseapp.com",
+        projectId: "gic-placement-portal",
+        storageBucket: "gic-placement-portal.appspot.com",
+        messagingSenderId: "273286737355",
+        appId: "1:273286737355:web:c41b50b259e7517b411a4e",
+        measurementId: "G-76KMQCZSX4"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    window.logout = function () {
+      signOut(auth).then(() => window.location.href = "index.html");
+    };
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Welcome to GIC Placement Dashboard</h1>
+  </header>
+  <main>
+    <p>You are now logged in!</p>
+    <button onclick="logout()">Logout</button>
+  </main>
+</body>
+</html>
